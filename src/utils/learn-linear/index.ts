@@ -9,7 +9,9 @@ export const learnLinear = async (input: number[]) => {
     const xs = tensor2d([-1, 0, 1, 2, 3, 4], [6, 1]);
     const ys = tensor2d([-3, -1, 1, 3, 5, 7], [6, 1]);
 
-    await model.fit(xs, ys, { epochs: 250 });
+    await model.fit(xs, ys, { epochs: 250, verbose: 0 });
 
-    return model.predict(tensor2d(input, [1, 1]));
+    const result = model.predict(tensor2d(input, [1, 1]));
+
+    return result;
 };
