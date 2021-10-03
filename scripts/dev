@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+rm -rf ./dist && concurrently "tsc -w" "sleep 2 && nodemon" "jest --watch --onlyChanged"
