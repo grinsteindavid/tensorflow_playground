@@ -32,7 +32,7 @@ export const multiLinearRegression = async (input: number[]) => {
         verbose: 0,
     });
 
-    const result = model.predict(tf.tensor2d(input, [1, 9])) as tf.Tensor;
+    const result = model.predict(tf.tensor(input, [1, 9])) as tf.Tensor;
 
     return result.data();
 };
