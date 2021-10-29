@@ -1,0 +1,30 @@
+name: node app with pnpm
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.13.0]
+    
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Grant execution permissions
+      run: chmod +x ./scripts/*
+
+    - name: Build
+      run: |
+        npm install -g pnpm
+        pnpm install
+        pnpm build
