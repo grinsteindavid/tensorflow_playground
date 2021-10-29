@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.0.0]
+        node-version: [12.19.1]
     
     steps:
     - uses: actions/checkout@v2
@@ -25,6 +25,6 @@ jobs:
 
     - name: Build
       run: |
-        npm install -g pnpm
+        npm install -g pnpm@6.14.7
         pnpm install
         pnpm build
