@@ -24,4 +24,3 @@ jobs:
         context: .
         push: true
         tags: grinsteindavid/tensorflow_playground:latest
-			  
